@@ -42,6 +42,26 @@ See the deployment status with
   php-apache  3             3           3             3            28m
 ```
 
+### Stop Load
+Kill busybox with <Ctrl-C> and check hpa
+```bash
+  $ kubectl get hpa
+  NAME       REFERENCE             TARGET      MINPODS      MAXPODS     REPLICAS     AGE
+  php-apache Deployment/php-apache 120%/50%    1            10          6            19m
+
+  $ kubectl get hpa
+  NAME       REFERENCE             TARGET      MINPODS      MAXPODS     REPLICAS     AGE
+  php-apache Deployment/php-apache 87%/50%     1            10          6            19m
+
+  $ kubectl get hpa
+  NAME       REFERENCE             TARGET      MINPODS      MAXPODS     REPLICAS     AGE
+  php-apache Deployment/php-apache 120%/50%    1            10          6            19m
+
+  $ kubectl get hpa
+  NAME       REFERENCE             TARGET      MINPODS      MAXPODS     REPLICAS     AGE
+  php-apache Deployment/php-apache 120%/50%    1            10          1            4h
+```
+
 ## Future Exploration
 
 ### kubectl run
