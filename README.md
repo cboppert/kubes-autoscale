@@ -62,6 +62,22 @@ Kill busybox with <Ctrl-C> and check hpa
   php-apache Deployment/php-apache 120%/50%    1            10          1            4h
 ```
 
+### Autoscaling on multiple metrics and custom metrics
+Get YAML of HorizontalPodAutoscaler in `autoscaling/v2beta2` form
+```bash
+  $ kubectl get hpa.v2beta2.autoscaling -o yaml > /tmp/hpa-v2.yaml
+```
+
+If that doesn't work, try
+```bash
+  $ kubectl api-versions
+```
+to see apis. For me
+```bash
+  $ kubectl get hpa.v2beta1.autoscaling -o yaml > hpa-v2.yaml
+```
+worked.
+
 ## Future Exploration
 
 ### kubectl run
